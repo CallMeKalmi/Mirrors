@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class LaserBeam
 {
+    public static bool ThereIsBlue;
     Vector3 pos, dir;
 
     GameObject laserObj;
@@ -54,6 +55,16 @@ public class LaserBeam
             Vector3 pos = hitinfo.point;
             Vector3 dir = Vector3.Reflect(direction, hitinfo.normal);
             CastRay(pos, dir, laser);
+            if (hitinfo.collider.gameObject.GetComponentInParent<MirrorControl>()._isBlue)
+            {
+                ThereIsBlue = true;
+                Debug.Log(ThereIsBlue);
+            }
+            else
+            {
+                ThereIsBlue = false;
+                Debug.Log(ThereIsBlue);
+            }
         }
         else
         {
