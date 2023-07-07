@@ -38,8 +38,6 @@ public class LaserBeam
 
         if (Physics.Raycast(ray, out hit, 30))
         {
-            //laserIndices.Add(hit.point);
-            //UpdateLaser();
             CheckHit(hit, dir, laser);
         }
         else
